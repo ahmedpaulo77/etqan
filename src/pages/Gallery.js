@@ -12,9 +12,22 @@ const galleryItems = [
 
 function Gallery() {
   const [filter, setFilter] = useState('all');
-  const [selected, setSelected] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   const filtered = filter === 'all' ? galleryItems : galleryItems.filter(i => i.category === filter);
+
+  const openImage = (index) => setSelectedIndex(index);
+  const closeImage = () => setSelectedIndex(null);
+
+  const goNext = (e) => {
+    e.stopPropagation();
+    setSelectedIndex((selectedIndex + 1) % filtered.length);
+  };
+
+  const goPrev = (e) => {
+    e.stopPropagation();
+    setSelectedIndex((selectedIndex - 1 + filtered.length) % filtered.length);
+  };
 
   return (
     <main className="page">
@@ -29,8 +42,8 @@ function Gallery() {
           <button className={filter === 'maintenance' ? 'active' : ''} onClick={() => setFilter('maintenance')}>صيانة</button>
         </div>
         <div className="gallery-grid">
-          {filtered.map(item => (
-            <div className="gallery-card" key={item.id} onClick={() => setSelected(item)}>
+          {filtered.map((item, index) => (
+            <div className="gallery-card" key={item.id} onClick={() => openImage(index)}>
               <img src={item.img} alt={item.title} />
               <div className="gallery-overlay">
                 <span>{item.title}</span>
@@ -40,14 +53,20 @@ function Gallery() {
         </div>
       </div>
 
-      {selected && (
-        <div className="lightbox" onClick={() => setSelected(null)}>
+      {selectedIndex !== null && (
+        <div className="lightbox" onClick={closeImage}>
           <div className="lightbox-content" onClick={e => e.stopPropagation()}>
-            <button className="lightbox-close" onClick={() => setSelected(null)}>
+            <button className="lightbox-close" onClick={closeImage}>
               <i className="ti ti-x"></i>
             </button>
-            <img src={selected.img} alt={selected.title} />
-            <p>{selected.title}</p>
+            <button className="lightbox-nav lightbox-prev" onClick={goPrev}>
+              <i className="ti ti-chevron-right"></i>
+            </button>
+            <img src={filtered[selectedIndex].img} alt={filtered[selectedIndex].title} />
+            <button className="lightbox-nav lightbox-next" onClick={goNext}>
+              <i className="ti ti-chevron-left"></i>
+            </button>
+            <p>{filtered[selectedIndex].title}</p>
           </div>
         </div>
       )}
