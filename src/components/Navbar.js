@@ -10,7 +10,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          <span className="logo-main">إتقان</span>
+          <span className="logo-main">ضمان</span>
           <span className="logo-sub">للصيانة والتشطيبات</span>
         </Link>
 

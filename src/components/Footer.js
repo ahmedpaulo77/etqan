@@ -6,7 +6,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-brand">
-          <span className="footer-logo">إتقان</span>
+          <span className="footer-logo">ضمان</span>
           <p>للصيانة والتشطيبات</p>
         </div>
 
@@ -22,7 +22,7 @@ function Footer() {
           </a>
         </div>
 
-        <p className="footer-copy">© 2025 إتقان للصيانة والتشطيبات. جميع الحقوق محفوظة.</p>
+        <p className="footer-copy">© 2025 ضمان للصيانة والتشطيبات. جميع الحقوق محفوظة.</p>
       </div>
     </footer>
   );

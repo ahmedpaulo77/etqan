@@ -21,7 +21,7 @@ function Finishing() {
               
               {/* تم تصليح فتحة التاج هنا <a */}
               <a 
-                href={`https://wa.me/201000000000?text=${encodeURIComponent(service.message)}`}
+                href={`https://wa.me/201019506066?text=${encodeURIComponent(service.message)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="wa-btn"
