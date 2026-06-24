@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/etqan/static/css/main.120c4cee.css",
-    "main.js": "/etqan/static/js/main.cb1f4195.js",
+    "main.js": "/etqan/static/js/main.0e5bce49.js",
     "index.html": "/etqan/index.html",
     "main.120c4cee.css.map": "/etqan/static/css/main.120c4cee.css.map",
-    "main.cb1f4195.js.map": "/etqan/static/js/main.cb1f4195.js.map"
+    "main.0e5bce49.js.map": "/etqan/static/js/main.0e5bce49.js.map"
   },
   "entrypoints": [
     "static/css/main.120c4cee.css",
-    "static/js/main.cb1f4195.js"
+    "static/js/main.0e5bce49.js"
   ]
 }
