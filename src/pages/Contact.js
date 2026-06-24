@@ -15,7 +15,7 @@ function Contact() {
               <i className="ti ti-phone"></i>
               <div>
                 <h3>اتصل بنا</h3>
-                <p>01000000000</p>
+                <p>201019506066</p>
               </div>
             </div>
             <div className="contact-card">
