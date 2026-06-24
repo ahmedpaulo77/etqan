@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import { HashRouter, Routes, Route } from 'react-router-dom';import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Maintenance from './pages/Maintenance';
@@ -11,7 +10,7 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -31,7 +30,7 @@ function App() {
       >
         <i className="ti ti-brand-whatsapp"></i>
       </a>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

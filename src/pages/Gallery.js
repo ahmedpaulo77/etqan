@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './Gallery.css';
 
-const galleryItems = [        // <-- هنا بدّل الـ array
-  { id: 1, category: 'finishing', title: 'تشطيب صالة', img: '/images/1.jpg' },
-  { id: 2, category: 'finishing', title: 'دهانات غرفة', img: '/images/2.jpg' },
-  { id: 3, category: 'maintenance', title: 'صيانة تكييف', img: '/images/3.jpg' },
-  { id: 4, category: 'finishing', title: 'تركيب سيراميك', img: '/images/4.jpg' },
-  { id: 5, category: 'maintenance', title: 'صيانة غسالة', img: '/images/5.jpg' },
-  { id: 6, category: 'finishing', title: 'تشطيب مطبخ', img: '/images/6.jpg' },
+const galleryItems = [
+  { id: 1, category: 'finishing', title: 'تشطيب صالة', img: process.env.PUBLIC_URL + '/images/1.jpg' },
+  { id: 2, category: 'finishing', title: 'دهانات غرفة', img: process.env.PUBLIC_URL + '/images/2.jpg' },
+  { id: 3, category: 'maintenance', title: 'صيانة تكييف', img: process.env.PUBLIC_URL + '/images/3.jpg' },
+  { id: 4, category: 'finishing', title: 'تركيب سيراميك', img: process.env.PUBLIC_URL + '/images/4.jpg' },
+  { id: 5, category: 'maintenance', title: 'صيانة غسالة', img: process.env.PUBLIC_URL + '/images/5.jpg' },
+  { id: 6, category: 'finishing', title: 'تشطيب مطبخ', img: process.env.PUBLIC_URL + '/images/6.jpg' },
 ];
 
 function Gallery() {
