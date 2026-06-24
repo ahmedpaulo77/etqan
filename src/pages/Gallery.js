@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import './Gallery.css';
 
 const galleryItems = [
-  { id: 1, category: 'finishing', title: 'تشطيب صالة', img: process.env.PUBLIC_URL + '/images/1.jpg' },
-  { id: 2, category: 'finishing', title: 'دهانات غرفة', img: process.env.PUBLIC_URL + '/images/2.jpg' },
-  { id: 3, category: 'maintenance', title: 'صيانة تكييف', img: process.env.PUBLIC_URL + '/images/3.jpg' },
-  { id: 4, category: 'finishing', title: 'تركيب سيراميك', img: process.env.PUBLIC_URL + '/images/4.jpg' },
-  { id: 5, category: 'maintenance', title: 'صيانة غسالة', img: process.env.PUBLIC_URL + '/images/5.jpg' },
-  { id: 6, category: 'finishing', title: 'تشطيب مطبخ', img: process.env.PUBLIC_URL + '/images/6.jpg' },
+  { id: 1, category: 'finishing', title: 'تشطيب صالة', img: `${process.env.PUBLIC_URL}/images/1.jpg` },
+  { id: 2, category: 'finishing', title: 'دهانات غرفة', img: `${process.env.PUBLIC_URL}/images/2.jpg` },
+  { id: 3, category: 'maintenance', title: 'صيانة تكييف', img: `${process.env.PUBLIC_URL}/images/3.jpg` },
+  { id: 4, category: 'finishing', title: 'تركيب سيراميك', img: `${process.env.PUBLIC_URL}/images/4.jpg` },
+  { id: 5, category: 'maintenance', title: 'صيانة غسالة', img: `${process.env.PUBLIC_URL}/images/5.jpg` },
+  { id: 6, category: 'finishing', title: 'تشطيب مطبخ', img: `${process.env.PUBLIC_URL}/images/6.jpg` },
 ];
 
 function Gallery() {
   const [filter, setFilter] = useState('all');
+  const [selected, setSelected] = useState(null);
+
   const filtered = filter === 'all' ? galleryItems : galleryItems.filter(i => i.category === filter);
 
   return (
@@ -28,7 +30,7 @@ function Gallery() {
         </div>
         <div className="gallery-grid">
           {filtered.map(item => (
-            <div className="gallery-card" key={item.id}>
+            <div className="gallery-card" key={item.id} onClick={() => setSelected(item)}>
               <img src={item.img} alt={item.title} />
               <div className="gallery-overlay">
                 <span>{item.title}</span>
@@ -37,6 +39,18 @@ function Gallery() {
           ))}
         </div>
       </div>
+
+      {selected && (
+        <div className="lightbox" onClick={() => setSelected(null)}>
+          <div className="lightbox-content" onClick={e => e.stopPropagation()}>
+            <button className="lightbox-close" onClick={() => setSelected(null)}>
+              <i className="ti ti-x"></i>
+            </button>
+            <img src={selected.img} alt={selected.title} />
+            <p>{selected.title}</p>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
